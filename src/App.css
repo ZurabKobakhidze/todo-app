@@ -1,42 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+body {
+  min-height: 100vh;
+  background-image: url(./assets/bg-mobile-light.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 48px;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.moon {
+  width: 20px;
+}
+
+.create_todo_input_head {
+  background: #ffffff;
+  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  border-radius: 5px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+  padding-right: 20px;
+  gap: 10px;
+  box-sizing: border-box;
+  margin-top: 40px;
+}
+
+.check_button {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: 1px solid #e3e4f1;
+}
+
+.input_first {
+  width: 100%;
+  border: none;
+  box-sizing: border-box;
+  padding-left: 2px;
+}
+
+.input_first::placeholder {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.166667px;
+  color: #9495a5;
+}
+
+.input_first:focus {
+  outline: none; /* Remove the default browser outline */
+  border: none; /* Remove the border */
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    background-image: url(./assets/bg-desktop-light.jpg);
+    padding-top: 70px;
+    padding-left: 450px;
+    padding-right: 450px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .moon {
+    width: 26px;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .todo_logo {
+    height: 40px;
+    width: 167px;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  .create_todo_input_head {
+    margin-top: 48px;
+    height: 64px;
+    padding-left: 24px;
+    padding-right: 24px;
+    gap: 20px;
+  }
 
-.read-the-docs {
-  color: #888;
+  .check_button {
+    width: 24px;
+    height: 24px;
+  }
+
+  .input_first::placeholder {
+    font-size: 18px;
+    line-height: 18px;
+  }
 }
