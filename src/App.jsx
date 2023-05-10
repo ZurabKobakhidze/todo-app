@@ -1,6 +1,7 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import moon from "./assets/icon-moon.svg";
+import cross from "./assets/icon-cross.svg";
 
 import "./App.css";
 
@@ -38,6 +39,55 @@ function App() {
           placeholder="Create a new todo…"
         />
       </div>
+      <div className="container">
+        <div className="todo_list">
+          <button className="check_button"></button>
+          <h2 className="todo_list_text">Complete online JavaScript course</h2>
+          <img className="cross" src={cross} alt="" />
+        </div>
+        <div className="line_between"></div>
+        <div className="todo_list">
+          <button className="check_button"></button>
+          <h2 className="todo_list_text">Jog around the park 3x</h2>
+          <img className="cross" src={cross} alt="" />
+        </div>
+        <div className="line_between"></div>
+        <div className="todo_list">
+          <button className="check_button"></button>
+          <h2 className="todo_list_text">10 minutes meditation</h2>
+          <img className="cross" src={cross} alt="" />
+        </div>
+        <div className="line_between"></div>
+        <div className="todo_list">
+          <button className="check_button"></button>
+          <h2 className="todo_list_text">Read for 1 hour</h2>
+          <img className="cross" src={cross} alt="" />
+        </div>
+        <div className="line_between"></div>
+        <div className="todo_list">
+          <button className="check_button"></button>
+          <h2 className="todo_list_text">Pick up groceries</h2>
+          <img className="cross" src={cross} alt="" />
+        </div>
+        <div className="line_between"></div>
+        <div className="todo_list">
+          <button className="check_button"></button>
+          <h2 className="todo_list_text">Complete Todo App on Frontend Mentor</h2>
+          <img className="cross" src={cross} alt="" />
+        </div>
+        <div className="line_between"></div>
+        
+        <div className="container_bottom">
+          <span className="span">5 items left</span>
+          <span className="span">Clear Completed</span>
+        </div>
+      </div>
+      <div className="bottom_info_div">
+        <span className="span_2_blue">All</span>
+        <span className="span_2">Active</span>
+        <span className="span_2">Completed</span>
+      </div>
+      <p className="footer_p">Drag and drop to reorder list</p>
     </div>
   );
 }

@@ -72,8 +72,119 @@ body {
 }
 
 .input_first:focus {
-  outline: none; /* Remove the default browser outline */
-  border: none; /* Remove the border */
+  outline: none;
+  border: none;
+}
+
+.container {
+  margin-top: 16px;
+  background: #ffffff;
+  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  border-radius: 5px;
+}
+
+.todo_list {
+  padding-top: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.todo_list_text {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.166667px;
+  color: #494c6b;
+  width: 100%;
+}
+
+.cross{
+  width: 12px;
+  height: 12px;
+}
+
+.line_between {
+  background: #e3e4f1;
+  width: 100%;
+  height: 1px;
+}
+
+.container_bottom {
+  padding-top: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 22px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.span {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.166667px;
+  color: #9495a5;
+}
+
+.bottom_info_div {
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 19px;
+  box-sizing: border-box;
+  margin-top: 16px;
+  background: #ffffff;
+  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 19px;
+  align-items: center;
+}
+
+.span_2_blue {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: -0.194444px;
+  color: #3a7cfd;
+}
+
+.span_2 {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: -0.194444px;
+  color: #9495a5;
+}
+
+.footer_p {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: -0.194444px;
+  color: #9495a5;
+  padding-top: 40px;
+  padding-bottom: 72px;
+  box-sizing: border-box;
 }
 
 @media screen and (min-width: 1440px) {
