@@ -32,7 +32,7 @@ function App() {
       <div className="create_todo_input_head">
         <button className="check_button"></button>
         <input
-          class="input_first"
+          className="input_first"
           id="billAmounts"
           type="text"
           value=""
@@ -46,7 +46,7 @@ function App() {
           <img className="cross" src={cross} alt="" />
         </div>
         <div className="line_between"></div>
-        <div className="todo_list">
+        {/* <div className="todo_list">
           <button className="check_button"></button>
           <h2 className="todo_list_text">Jog around the park 3x</h2>
           <img className="cross" src={cross} alt="" />
@@ -75,7 +75,7 @@ function App() {
           <h2 className="todo_list_text">Complete Todo App on Frontend Mentor</h2>
           <img className="cross" src={cross} alt="" />
         </div>
-        <div className="line_between"></div>
+        <div className="line_between"></div> */}
         
         <div className="container_bottom">
           <span className="span">5 items left</span>
