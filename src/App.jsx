@@ -1,11 +1,13 @@
 import { useState } from "react";
 import moon from "./assets/icon-moon.svg";
+import sun from "./assets/icon-sun.svg";
 import cross from "./assets/icon-cross.svg";
 import "./App.css";
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
+  const [isDay, setIsDay] = useState(true);
 
   function addTodo(e) {
     e.preventDefault();
@@ -40,15 +42,15 @@ function App() {
     setTodos(todos.filter((todo) => !todo.completed));
   }
 
-  function filterTodos() {
-    if (filter === "active") {
-      return todos.filter((todo) => !todo.completed);
-    } else if (filter === "completed") {
-      return todos.filter((todo) => todo.completed);
-    } else {
-      return todos;
-    }
-  }
+  // function filterTodos() {
+  //   if (filter === "active") {
+  //     return todos.filter((todo) => !todo.completed);
+  //   } else if (filter === "completed") {
+  //     return todos.filter((todo) => todo.completed);
+  //   } else {
+  //     return todos;
+  //   }
+  // }
 
   return (
     <div className="App">
@@ -69,7 +71,12 @@ function App() {
           />
         </svg>
 
-        <img className="moon" src={moon} alt="" />
+        <img
+          className="moon"
+          src={isDay ? moon : sun}
+          alt=""
+          onClick={() => setIsDay(!isDay)}
+        />
       </div>
       <form onSubmit={addTodo} className="create_todo_input_head">
         <button type="submit" className="check_button"></button>
