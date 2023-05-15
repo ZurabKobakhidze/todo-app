@@ -1,5 +1,5 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+
 import moon from "./assets/icon-moon.svg";
 import cross from "./assets/icon-cross.svg";
 
@@ -17,12 +17,12 @@ function App() {
     }
 
     const newTodo = {
-      id: Math.random(), // you might want to use a better id generation method in a real app
+      id: Math.random(), 
       text: newTodoText,
       completed: false,
     };
     setTodos([...todos, newTodo]);
-    e.target.elements.billAmounts.value = ""; // clear the input
+    e.target.elements.billAmounts.value = ""; 
   }
 
   function toggleComplete(id) {
@@ -71,10 +71,10 @@ function App() {
         {todos.map((todo, i) => (
           <div key={i} className="todo_list">
             <button
-              className="check_button"
+              className={`check_button_2 ${todo.completed ? 'completed' : ''}`}
               onClick={() => toggleComplete(todo.id)}
             ></button>
-            <h2 className="todo_list_text">{todo.text}</h2>
+            <h2 className={`todo_list_text ${todo.completed ? 'text_completed' : ''}`}>{todo.text}</h2>
             <img
               className="cross"
               src={cross}
@@ -92,12 +92,7 @@ function App() {
           </div>
         </>
       )}
-        {/* <div className="line_between"></div>
-
-        <div className="container_bottom">
-          <span className="span">5 items left</span>
-          <span className="span">Clear Completed</span>
-        </div> */}
+        
       </div>
       <div className="bottom_info_div">
         <span className="span_2_blue">All</span>

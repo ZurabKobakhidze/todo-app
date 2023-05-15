@@ -52,6 +52,20 @@ body {
   height: 20px;
   background: #ffffff;
   border: 1px solid #e3e4f1;
+  cursor: pointer;
+}
+
+.check_button:hover {
+  background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+}
+
+.check_button_2 {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: 1px solid #e3e4f1;
+  cursor: pointer;
 }
 
 .input_first {
@@ -74,6 +88,13 @@ body {
 .input_first:focus {
   outline: none;
   border: none;
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.25px;
+  color: #393a4b;
 }
 
 .container {
@@ -91,7 +112,6 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  
 }
 
 .todo_list_text {
@@ -106,9 +126,27 @@ body {
   margin-left: 12px;
 }
 
-.cross{
+.text_completed {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.166667px;
+  text-decoration-line: line-through;
+  color: #d1d2da;
+}
+
+.completed {
+  background: url("./assets/icon-check.svg") no-repeat center,
+    linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+  background-size: auto, cover;
+}
+
+.cross {
   width: 12px;
   height: 12px;
+  cursor: pointer;
 }
 
 .line_between {
