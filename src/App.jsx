@@ -6,7 +6,36 @@ import cross from "./assets/icon-cross.svg";
 import "./App.css";
 
 function App() {
-  // useState(0);
+  const [todos, setTodos] = useState([]);
+
+  function addTodo(e) {
+    e.preventDefault();
+    const newTodoText = e.target.elements.billAmounts.value;
+
+    if(newTodoText.trim() ===""){
+      return;
+    }
+
+    const newTodo = {
+      id: Math.random(), // you might want to use a better id generation method in a real app
+      text: newTodoText,
+      completed: false,
+    };
+    setTodos([...todos, newTodo]);
+    e.target.elements.billAmounts.value = ""; // clear the input
+  }
+
+  function toggleComplete(id) {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  }
+
+  function removeTodo(id) {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  }
 
   return (
     <div className="App">
@@ -29,58 +58,46 @@ function App() {
 
         <img className="moon" src={moon} alt="" />
       </div>
-      <div className="create_todo_input_head">
-        <button className="check_button"></button>
+      <form onSubmit={addTodo} className="create_todo_input_head">
+        <button type="submit" className="check_button"></button>
         <input
           className="input_first"
           id="billAmounts"
           type="text"
-          value=""
           placeholder="Create a new todo…"
         />
-      </div>
+      </form>
       <div className="container">
-        <div className="todo_list">
-          <button className="check_button"></button>
-          <h2 className="todo_list_text">Complete online JavaScript course</h2>
-          <img className="cross" src={cross} alt="" />
-        </div>
-        <div className="line_between"></div>
-        {/* <div className="todo_list">
-          <button className="check_button"></button>
-          <h2 className="todo_list_text">Jog around the park 3x</h2>
-          <img className="cross" src={cross} alt="" />
-        </div>
-        <div className="line_between"></div>
-        <div className="todo_list">
-          <button className="check_button"></button>
-          <h2 className="todo_list_text">10 minutes meditation</h2>
-          <img className="cross" src={cross} alt="" />
-        </div>
-        <div className="line_between"></div>
-        <div className="todo_list">
-          <button className="check_button"></button>
-          <h2 className="todo_list_text">Read for 1 hour</h2>
-          <img className="cross" src={cross} alt="" />
-        </div>
-        <div className="line_between"></div>
-        <div className="todo_list">
-          <button className="check_button"></button>
-          <h2 className="todo_list_text">Pick up groceries</h2>
-          <img className="cross" src={cross} alt="" />
-        </div>
-        <div className="line_between"></div>
-        <div className="todo_list">
-          <button className="check_button"></button>
-          <h2 className="todo_list_text">Complete Todo App on Frontend Mentor</h2>
-          <img className="cross" src={cross} alt="" />
-        </div>
-        <div className="line_between"></div> */}
-        
+        {todos.map((todo, i) => (
+          <div key={i} className="todo_list">
+            <button
+              className="check_button"
+              onClick={() => toggleComplete(todo.id)}
+            ></button>
+            <h2 className="todo_list_text">{todo.text}</h2>
+            <img
+              className="cross"
+              src={cross}
+              alt=""
+              onClick={() => removeTodo(todo.id)}
+            />
+          </div>
+        ))}
+        {todos.length > 0 && (
+        <>
+          <div className="line_between"></div>
+          <div className="container_bottom">
+            <span className="span">{todos.length} items left</span>
+            <span className="span">Clear Completed</span>
+          </div>
+        </>
+      )}
+        {/* <div className="line_between"></div>
+
         <div className="container_bottom">
           <span className="span">5 items left</span>
           <span className="span">Clear Completed</span>
-        </div>
+        </div> */}
       </div>
       <div className="bottom_info_div">
         <span className="span_2_blue">All</span>
