@@ -68,6 +68,16 @@ body {
   cursor: pointer;
 }
 
+.check_button_2:hover {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  cursor: pointer;
+  border: 1px solid  #55DDFF;
+  
+}
+
 .input_first {
   width: 100%;
   border: none;
@@ -95,6 +105,7 @@ body {
   line-height: 12px;
   letter-spacing: -0.25px;
   color: #393a4b;
+  
 }
 
 .container {
@@ -176,6 +187,19 @@ body {
   color: #9495a5;
 }
 
+.button_span{
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.166667px;
+  color: #9495a5;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
 .bottom_info_div {
   width: 100%;
   padding-top: 15px;
@@ -202,6 +226,11 @@ body {
   color: #3a7cfd;
 }
 
+.selected {
+  color: #3A7CFD;
+  
+}
+
 .span_2 {
   font-family: "Josefin Sans";
   font-style: normal;
@@ -210,6 +239,9 @@ body {
   line-height: 14px;
   letter-spacing: -0.194444px;
   color: #9495a5;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .footer_p {

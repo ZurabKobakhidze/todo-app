@@ -1,28 +1,27 @@
 import { useState } from "react";
-
 import moon from "./assets/icon-moon.svg";
 import cross from "./assets/icon-cross.svg";
-
 import "./App.css";
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [filter, setFilter] = useState("all");
 
   function addTodo(e) {
     e.preventDefault();
     const newTodoText = e.target.elements.billAmounts.value;
 
-    if(newTodoText.trim() ===""){
+    if (newTodoText.trim() === "") {
       return;
     }
 
     const newTodo = {
-      id: Math.random(), 
+      id: Math.random(),
       text: newTodoText,
       completed: false,
     };
     setTodos([...todos, newTodo]);
-    e.target.elements.billAmounts.value = ""; 
+    e.target.elements.billAmounts.value = "";
   }
 
   function toggleComplete(id) {
@@ -35,6 +34,20 @@ function App() {
 
   function removeTodo(id) {
     setTodos(todos.filter((todo) => todo.id !== id));
+  }
+
+  function clearCompletedTodos() {
+    setTodos(todos.filter((todo) => !todo.completed));
+  }
+
+  function filterTodos() {
+    if (filter === "active") {
+      return todos.filter((todo) => !todo.completed);
+    } else if (filter === "completed") {
+      return todos.filter((todo) => todo.completed);
+    } else {
+      return todos;
+    }
   }
 
   return (
@@ -68,36 +81,73 @@ function App() {
         />
       </form>
       <div className="container">
-        {todos.map((todo, i) => (
-          <div key={i} className="todo_list">
-            <button
-              className={`check_button_2 ${todo.completed ? 'completed' : ''}`}
-              onClick={() => toggleComplete(todo.id)}
-            ></button>
-            <h2 className={`todo_list_text ${todo.completed ? 'text_completed' : ''}`}>{todo.text}</h2>
-            <img
-              className="cross"
-              src={cross}
-              alt=""
-              onClick={() => removeTodo(todo.id)}
-            />
-          </div>
-        ))}
+        {todos
+          .filter((todo) => {
+            if (filter === "ALL") return true;
+            if (filter === "ACTIVE") return !todo.completed;
+            if (filter === "COMPLETED") return todo.completed;
+          })
+          .map((todo, i) => (
+            <>
+              <div key={i} className="todo_list">
+                <button
+                  className={`check_button_2 ${
+                    todo.completed ? "completed" : ""
+                  }`}
+                  onClick={() => toggleComplete(todo.id)}
+                ></button>
+                <h2
+                  className={`todo_list_text ${
+                    todo.completed ? "text_completed" : ""
+                  }`}
+                >
+                  {todo.text}
+                </h2>
+                <img
+                  className="cross"
+                  src={cross}
+                  alt=""
+                  onClick={() => removeTodo(todo.id)}
+                />
+              </div>
+              <div className="line_between"></div>
+            </>
+          ))}
         {todos.length > 0 && (
-        <>
-          <div className="line_between"></div>
-          <div className="container_bottom">
-            <span className="span">{todos.length} items left</span>
-            <span className="span">Clear Completed</span>
-          </div>
-        </>
-      )}
-        
+          <>
+            <div className="container_bottom">
+              <span className="span">
+                {todos.filter((todo) => !todo.completed).length} items left
+              </span>
+              <button className="button_span" onClick={clearCompletedTodos}>
+                Clear Completed
+              </button>
+            </div>
+          </>
+        )}
       </div>
       <div className="bottom_info_div">
-        <span className="span_2_blue">All</span>
-        <span className="span_2">Active</span>
-        <span className="span_2">Completed</span>
+        <button
+          style={filter === "ALL" ? { color: "#3A7CFD" } : null}
+          className="span_2"
+          onClick={() => setFilter("ALL")}
+        >
+          All
+        </button>
+        <button
+          style={filter === "ACTIVE" ? { color: "#3A7CFD" } : null}
+          className="span_2"
+          onClick={() => setFilter("ACTIVE")}
+        >
+          Active
+        </button>
+        <button
+          style={filter === "COMPLETED" ? { color: "#3A7CFD" } : null}
+          className="span_2"
+          onClick={() => setFilter("COMPLETED")}
+        >
+          Completed
+        </button>
       </div>
       <p className="footer_p">Drag and drop to reorder list</p>
     </div>
