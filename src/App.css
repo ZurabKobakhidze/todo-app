@@ -69,6 +69,7 @@
 .check_button:hover {
   background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
   border: none;
+  transition: ease 0.3s;
 }
 
 .check_button_2 {
@@ -88,6 +89,7 @@
   background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
   cursor: pointer;
   border: none;
+  transition: ease 0.3s;
 }
 
 .check_button_2:hover::after {
@@ -99,6 +101,7 @@
   height: 18px;
   border-radius: 50%;
   background: white;
+  transition: ease 0.3s;
 }
 
 .input_first {
@@ -107,6 +110,14 @@
   box-sizing: border-box;
   padding-left: 2px;
   background: none;
+  color: #393a4b;
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+
+  letter-spacing: -0.25px;
 }
 
 .input_first::placeholder {
@@ -137,6 +148,36 @@
   box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
   border-radius: 5px;
   width: 100%;
+}
+
+.todos_scrollable {
+  max-height: 343px;
+  overflow-y: auto;
+}
+
+.App.night .todos_scrollable::-webkit-scrollbar-thumb {
+  background: #5b5e7e;
+}
+
+.App.night .todos_scrollable::-webkit-scrollbar-track {
+  background: #393a4b;
+}
+
+.todos_scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.todos_scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.todos_scrollable::-webkit-scrollbar-thumb {
+  background: #d1d2da;
+}
+
+.todos_scrollable::-webkit-scrollbar-thumb:hover {
+  background: #d1d2da;
+  transition: ease 0.3s;
 }
 
 .todo_list {
@@ -224,6 +265,9 @@
   background: none;
   border: none;
 }
+.bottom_info_div_desktop {
+  display: none;
+}
 
 .bottom_info_div {
   width: 100%;
@@ -298,6 +342,13 @@
 .App.night .check_button:hover {
   background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
   border: none;
+  transition: ease 0.3s;
+}
+
+.App.night .input_first {
+  font-size: 12px;
+  line-height: 12px;
+  color: #767992;
 }
 
 .App.night .input_first:focus {
@@ -322,6 +373,7 @@
   background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
   cursor: pointer;
   border: none;
+  transition: ease 0.3s;
 }
 
 .App.night .check_button_2:hover::after {
@@ -333,6 +385,7 @@
   height: 18px;
   border-radius: 50%;
   background: #25273d;
+  transition: ease 0.3s;
 }
 
 .App.night .completed {
@@ -418,6 +471,14 @@
 
   .input_first {
     height: 64px;
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  .App.night .input_first {
+    height: 64px;
+    font-size: 18px;
+    line-height: 18px;
   }
 
   .input_first::placeholder {
@@ -435,17 +496,45 @@
     height: 24px;
   }
 
+  .App.night .check_button_2{
+    width: 24px;
+    height: 24px;
+  }
+
   .check_button_2:hover {
     width: 24px;
     height: 24px;
+    transition: ease 0.3s;
+  }
+
+  .App.night .check_button_2:hover{
+    width: 24px;
+    height: 24px;
+    transition: ease 0.3s;
   }
 
   .check_button_2:hover::after {
     width: 22px;
     height: 22px;
+    transition: ease 0.3s;
+  }
+
+  .App.night .check_button_2:hover::after{
+    width: 22px;
+    height: 22px;
+    transition: ease 0.3s;
   }
 
   .todo_list_text {
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: -0.25px;
+  }
+
+  .App.night .todo_list_text{
     font-family: "Josefin Sans";
     font-style: normal;
     font-weight: 400;
@@ -478,6 +567,27 @@
     letter-spacing: -0.194444px;
   }
 
+  .button_span:hover{
+    color: #494C6B;
+    transition: ease 0.3s;
+    
+  }
+
+  .App.night .button_span{
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: right;
+    letter-spacing: -0.194444px;
+  }
+
+  .App.night .button_span:hover{
+    color: #E3E4F1;
+    transition: ease 0.3s;
+  }
+
   .span_2 {
     font-family: "Josefin Sans";
     font-style: normal;
@@ -485,5 +595,35 @@
     font-size: 14px;
     line-height: 14px;
     letter-spacing: -0.194444px;
+    cursor: pointer;
+  }
+
+  .span_2:hover{
+    color: #494C6B;
+    transition: ease 0.3s;
+  }
+
+  .App.night .span_2{
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.194444px;
+    cursor: pointer;
+  }
+
+  .App.night .span_2:hover{
+    color: #E3E4F1;
+    transition: ease 0.3s;
+  }
+
+  .bottom_info_div_desktop {
+    display: flex;
+    gap: 19px;
+  }
+
+  .bottom_info_div {
+    display: none;
   }
 }

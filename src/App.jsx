@@ -69,44 +69,70 @@ function App() {
         />
       </form>
       <div className="container">
-        {todos
-          .filter((todo) => {
-            if (filter === "ALL") return true;
-            if (filter === "ACTIVE") return !todo.completed;
-            if (filter === "COMPLETED") return todo.completed;
-          })
-          .map((todo) => (
-            <React.Fragment key={todo.id}>
-              <div className="todo_list">
-                <button
-                  className={`check_button_2 ${
-                    todo.completed ? "completed" : ""
-                  }`}
-                  onClick={() => toggleComplete(todo.id)}
-                ></button>
-                <h2
-                  className={`todo_list_text ${
-                    todo.completed ? "text_completed" : ""
-                  }`}
-                >
-                  {todo.text}
-                </h2>
-                <img
-                  className="cross"
-                  src={cross}
-                  alt=""
-                  onClick={() => removeTodo(todo.id)}
-                />
-              </div>
-              <div className="line_between"></div>
-            </React.Fragment>
-          ))}
+        <div className="todos_scrollable">
+          {todos
+            .filter((todo) => {
+              if (filter === "ALL") return true;
+              if (filter === "ACTIVE") return !todo.completed;
+              if (filter === "COMPLETED") return todo.completed;
+            })
+            .map((todo) => (
+              <React.Fragment key={todo.id}>
+                <div className="todo_list">
+                  <button
+                    className={`check_button_2 ${
+                      todo.completed ? "completed" : ""
+                    }`}
+                    onClick={() => toggleComplete(todo.id)}
+                  ></button>
+                  <h2
+                    className={`todo_list_text ${
+                      todo.completed ? "text_completed" : ""
+                    }`}
+                  >
+                    {todo.text}
+                  </h2>
+                  <img
+                    className="cross"
+                    src={cross}
+                    alt=""
+                    onClick={() => removeTodo(todo.id)}
+                  />
+                </div>
+                <div className="line_between"></div>
+              </React.Fragment>
+            ))}
+        </div>
+
         {todos.length > 0 && (
           <>
             <div className="container_bottom">
               <span className="span">
                 {todos.filter((todo) => !todo.completed).length} items left
               </span>
+              <div className="bottom_info_div_desktop">
+                <button
+                  style={filter === "ALL" ? { color: "#3A7CFD" } : null}
+                  className="span_2"
+                  onClick={() => setFilter("ALL")}
+                >
+                  All
+                </button>
+                <button
+                  style={filter === "ACTIVE" ? { color: "#3A7CFD" } : null}
+                  className="span_2"
+                  onClick={() => setFilter("ACTIVE")}
+                >
+                  Active
+                </button>
+                <button
+                  style={filter === "COMPLETED" ? { color: "#3A7CFD" } : null}
+                  className="span_2"
+                  onClick={() => setFilter("COMPLETED")}
+                >
+                  Completed
+                </button>
+              </div>
               <button className="button_span" onClick={clearCompletedTodos}>
                 Clear Completed
               </button>
