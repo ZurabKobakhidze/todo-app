@@ -1,23 +1,25 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import moon from "./assets/icon-moon.svg";
 import sun from "./assets/icon-sun.svg";
 import cross from "./assets/icon-cross.svg";
-import todoLogo from "./assets/TODO.svg"; 
+import todoLogo from "./assets/TODO.svg";
 import "./App.css";
-
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("ALL");
   const [isDay, setIsDay] = useState(true);
 
-  
-
   function addTodo(e) {
     e.preventDefault();
     const newTodoText = e.target.elements.billAmounts.value;
 
     if (newTodoText.trim() === "") {
+      return;
+    }
+
+    const todoExists = todos.some((todo) => todo.text === newTodoText);
+    if (todoExists) {
       return;
     }
 
@@ -73,9 +75,9 @@ function App() {
             if (filter === "ACTIVE") return !todo.completed;
             if (filter === "COMPLETED") return todo.completed;
           })
-          .map((todo, i) => (
-            <>
-              <div key={i} className="todo_list">
+          .map((todo) => (
+            <React.Fragment key={todo.id}>
+              <div className="todo_list">
                 <button
                   className={`check_button_2 ${
                     todo.completed ? "completed" : ""
@@ -97,7 +99,7 @@ function App() {
                 />
               </div>
               <div className="line_between"></div>
-            </>
+            </React.Fragment>
           ))}
         {todos.length > 0 && (
           <>
