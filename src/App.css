@@ -1,7 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 
-body {
-  min-height: 100vh;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root{
+  height: 100%;
+}
+
+.body{
+  height: 100vh;
+}
+
+.App {
+  height: 100%;
   background-image: url(./assets/bg-mobile-light.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
@@ -14,9 +28,7 @@ body {
   box-sizing: border-box;
 }
 
-#root {
-  width: 100%;
-}
+
 
 .header {
   display: flex;
@@ -274,7 +286,7 @@ body {
 }
 
 @media screen and (min-width: 1440px) {
-  body {
+  .App {
     background-image: url(./assets/bg-desktop-light.jpg);
     padding-top: 70px;
     padding-left: 450px;
@@ -308,3 +320,9 @@ body {
     line-height: 18px;
   }
 }
+
+
+.App.night{
+  background-color: black;
+}
+
