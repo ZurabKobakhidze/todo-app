@@ -116,7 +116,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 12px;
-
+  width: 250px;
   letter-spacing: -0.25px;
 }
 
@@ -473,6 +473,7 @@
     height: 64px;
     font-size: 18px;
     line-height: 18px;
+    width: 420px;
   }
 
   .App.night .input_first {
